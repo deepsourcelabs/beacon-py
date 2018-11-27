@@ -1,0 +1,9 @@
+[run]
+branch = True
+
+[report]
+skip_covered = True
+show_missing = True
+omit =
+    beacon/beacon_pb2.py
+    beacon/beacon_pb2_grpc.py

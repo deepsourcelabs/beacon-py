@@ -1,4 +1,6 @@
-# beacon-py [![CircleCI](https://circleci.com/gh/deepsourcelabs/beacon-py.svg?style=svg&circle-token=456243519eb22cdf98406437df79bcaa083d3041)](https://circleci.com/gh/deepsourcelabs/beacon-py)
+# beacon-py
+
+[![Build Status](https://travis-ci.org/deepsourcelabs/beacon-py.svg?branch=master)](https://travis-ci.org/deepsourcelabs/beacon-py)
 
 **NOTE: `beacon-py` is currently in a pre-release phase, so we do not recommend using it at the moment.**
 

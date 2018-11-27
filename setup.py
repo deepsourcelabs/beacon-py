@@ -11,8 +11,8 @@ from setuptools.command.test import test as TestCommand
 
 # Package meta-data.
 NAME = 'beacon'
-DESCRIPTION = 'Beacon collects usage data of your Python apps.'
-EMAIL = 'sanketsaurav@gmail.com'
+DESCRIPTION = 'Collect runtime source-code metrics from Python applications.'
+EMAIL = 'sanket@deepsource.io'
 AUTHOR = 'Sanket Saurav'
 REQUIRES_PYTHON = '>=2.7.0'
 VERSION = None
@@ -107,11 +107,11 @@ setup(
     install_requires=REQUIRED,
     tests_require=TEST_REQUIRED,
     include_package_data=True,
-    license='MIT',
+    license='BSD',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT License',
+        'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
@@ -120,8 +120,8 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy'
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: Implementation :: CPython'
     ],
     cmdclass={
         'upload': UploadCommand,

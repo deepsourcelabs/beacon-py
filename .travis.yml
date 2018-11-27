@@ -1,0 +1,20 @@
+sudo: false
+language: python
+cache: pip
+python:
+- '2.7'
+- '3.4'
+- '3.5'
+- '3.6'
+matrix:
+  include:
+  - python: 3.7
+    dist: xenial
+    sudo: true
+install:
+- pip install tox tox-travis
+script:
+- tox
+notifications:
+  slack:
+    secure: fweoWlmF3eNZTvWqmebsKaPcxCv1VVqtRSxFzDkPvsfkPfZKx35UfqguCsEDLyTMyV4Ho0D0JNsBo/G+21HACro/a+AbXKBFGTV1499y15XgrkUm8Z9TU6j9r6CIXKGX538xSVQJnSzsDD6sK13s5Td9dTf8AA9nHWoX53jB+Blvx7szjcJKhdExN4yi2EBx3bpJXz1/Z83sUkwyo08CQCpg7Y2+/hKqSPk8GBIN93qfQ/BprJXSTIpkqzy2/qaW+nvIeyu67IF7zshYuzJCooWYAx1aQHaqt6I50T4b1y6lCx021kqI8I62FJ3WslZlaVzaKjI4WFUyEKcy6cf2vb+tM1mhCG+AX6w0qSKq9B57RX0OlRzehp4yihaQ9+oLhq8x5zOFC9rlSs5BZv7FGaqiKFrRaWvqVmWJG88CO5RKjlv6edyhfMWOeZOlWgSePskNG2peW45//UqZhucWSgeEthoxkUEVT+WGTnFJHSjKT1nauUmDSvc4wkKTT7tlyQqjGfoUQg7PW4tBdgWm6C3tclaa/2zAWTHqvWjn2U9xyBVNrb/TV0jwrQOymsa/PYgTl8xYt3jGGkexVG2BoTzH8kCMYfZF3XqzR7Qm3WEEEzAffOaA57XtZHwc8IZC/fhabnMOwhISMyRQQCUdXbnvAI+uuJJ2e1MGdsXFfMM=

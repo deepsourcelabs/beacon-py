@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='beacon.proto',
   package='beacon',
   syntax='proto3',
-  serialized_pb=_b('\n\x0c\x62\x65\x61\x63on.proto\x12\x06\x62\x65\x61\x63on\"\x07\n\x05\x45mpty\"\x82\x01\n\x0b\x41uthRequest\x12\x16\n\x0e\x62\x65\x61\x63on_api_key\x18\x01 \x01(\t\x12\x12\n\nproject_id\x18\x02 \x01(\t\x12\x1d\n\x15\x62\x65\x61\x63on_client_version\x18\x03 \x01(\t\x12\x16\n\x0esource_version\x18\x04 \x01(\t\x12\x10\n\x08hostname\x18\x05 \x01(\t\"!\n\x0c\x41uthResponse\x12\x11\n\tstream_id\x18\x01 \x01(\t\";\n\x05\x45vent\x12\x11\n\tfile_path\x18\x01 \x01(\t\x12\x10\n\x08location\x18\x02 \x01(\x03\x12\r\n\x05\x63ount\x18\x03 \x01(\x03\"\x9d\x01\n\x05\x42\x61tch\x12\x11\n\tstream_id\x18\x01 \x01(\t\x12&\n\nevent_type\x18\x02 \x01(\x0e\x32\x12.beacon.Batch.Type\x12\x1d\n\x06\x65vents\x18\x03 \x03(\x0b\x32\r.beacon.Event\x12\x12\n\nstart_time\x18\x04 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x05 \x01(\t\"\x14\n\x04Type\x12\x05\n\x01\x66\x10\x00\x12\x05\n\x01\x65\x10\x01\x32u\n\x06\x42\x65\x61\x63on\x12?\n\x10InitializeStream\x12\x13.beacon.AuthRequest\x1a\x14.beacon.AuthResponse\"\x00\x12*\n\x08Transmit\x12\r.beacon.Batch\x1a\r.beacon.Empty\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0c\x62\x65\x61\x63on.proto\x12\x06\x62\x65\x61\x63on\"\x07\n\x05\x45mpty\"\x85\x01\n\x0b\x41uthRequest\x12\x16\n\x0e\x62\x65\x61\x63on_api_key\x18\x01 \x01(\t\x12\x15\n\rrepository_id\x18\x02 \x01(\x03\x12\x1d\n\x15\x62\x65\x61\x63on_client_version\x18\x03 \x01(\t\x12\x16\n\x0esource_version\x18\x04 \x01(\t\x12\x10\n\x08hostname\x18\x05 \x01(\t\"!\n\x0c\x41uthResponse\x12\x11\n\tstream_id\x18\x01 \x01(\t\";\n\x05\x45vent\x12\x11\n\tfile_path\x18\x01 \x01(\t\x12\x10\n\x08location\x18\x02 \x01(\x03\x12\r\n\x05\x63ount\x18\x03 \x01(\x03\"\x8a\x01\n\x05\x42\x61tch\x12\x11\n\tstream_id\x18\x01 \x01(\t\x12&\n\nevent_type\x18\x02 \x01(\x0e\x32\x12.beacon.Batch.Type\x12\x1d\n\x06\x65vents\x18\x03 \x03(\x0b\x32\r.beacon.Event\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\"\x14\n\x04Type\x12\x05\n\x01\x66\x10\x00\x12\x05\n\x01\x65\x10\x01\x32u\n\x06\x42\x65\x61\x63on\x12?\n\x10InitializeStream\x12\x13.beacon.AuthRequest\x1a\x14.beacon.AuthResponse\"\x00\x12*\n\x08Transmit\x12\r.beacon.Batch\x1a\r.beacon.Empty\"\x00\x62\x06proto3')
 )
 
 
@@ -41,8 +41,8 @@ _BATCH_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=400,
-  serialized_end=420,
+  serialized_start=384,
+  serialized_end=404,
 )
 _sym_db.RegisterEnumDescriptor(_BATCH_TYPE)
 
@@ -86,9 +86,9 @@ _AUTHREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='project_id', full_name='beacon.AuthRequest.project_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='repository_id', full_name='beacon.AuthRequest.repository_id', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
@@ -126,7 +126,7 @@ _AUTHREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=34,
-  serialized_end=164,
+  serialized_end=167,
 )
 
 
@@ -156,8 +156,8 @@ _AUTHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=166,
-  serialized_end=199,
+  serialized_start=169,
+  serialized_end=202,
 )
 
 
@@ -201,8 +201,8 @@ _EVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=201,
-  serialized_end=260,
+  serialized_start=204,
+  serialized_end=263,
 )
 
 
@@ -235,16 +235,9 @@ _BATCH = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='start_time', full_name='beacon.Batch.start_time', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='end_time', full_name='beacon.Batch.end_time', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='timestamp', full_name='beacon.Batch.timestamp', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
@@ -261,8 +254,8 @@ _BATCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=263,
-  serialized_end=420,
+  serialized_start=266,
+  serialized_end=404,
 )
 
 _BATCH.fields_by_name['event_type'].enum_type = _BATCH_TYPE
@@ -318,8 +311,8 @@ _BEACON = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=422,
-  serialized_end=539,
+  serialized_start=406,
+  serialized_end=523,
   methods=[
   _descriptor.MethodDescriptor(
     name='InitializeStream',

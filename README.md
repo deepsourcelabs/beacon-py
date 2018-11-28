@@ -19,3 +19,21 @@ $ pipenv install beacon
 ```bash
 $ make test
 ```
+
+## Generating gRPC Protobuf stubs
+
+``bash
+$ make generate_grpc_client
+```
+
+Note: Apparently, the stub generator generates `beacon/beacon_pb2_grpc.py` with a bad import of `beacon_pb2`. After generating the stubs, the import has to be changed manually.
+
+Find the line:
+```python
+import beacon_pb2 as beacon__pb2  # existing bad import, which should be removed
+```
+
+And replace it with:
+```python
+from . import beacon_pb2 as beacon__pb2  # new import that should be added
+```

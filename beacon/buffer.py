@@ -5,9 +5,9 @@
 of filename and location, and stores them in a batch, which can be flushed
 to the server at defined time intervals."""
 import threading
+import time
 from collections import Counter, deque
 from copy import deepcopy
-from datetime import datetime
 
 from . import beacon_pb2
 
@@ -37,7 +37,7 @@ class Buffer(object):
         self.counter_lock = threading.Lock()
 
         # initialization time of this buffer
-        self.init_time = datetime.utcnow()
+        self.init_time = int(time.time())
 
         # store the message batches that could not be flushed due to the server
         # due to some reason, hoping we'd be able to flush them later
@@ -69,18 +69,17 @@ class Buffer(object):
             self.counter.clear()
 
             # reset the init_time
-            self.init_time = datetime.utcnow()
+            self.init_time = int(time.time())
 
         message = self._serialize_batch(counter=counter_data,
-                                        init_time=init_time,
-                                        end_time=datetime.utcnow())
+                                        timestamp=init_time)
 
         # TODO: do this in a better way
         if not len(message.events):
             return
         self._transmit(message)
 
-    def _serialize_batch(self, counter, init_time, end_time):
+    def _serialize_batch(self, counter, timestamp):
         """Take the counter data and return a serialized batch message that
         can be sent to the server. Additionally, it needs the start_time and
         end_time of capture of this set of events.
@@ -94,8 +93,7 @@ class Buffer(object):
         batch = beacon_pb2.Batch(stream_id=self.agent.stream_id,
                                  event_type=self.event_type,
                                  events=events,
-                                 start_time=str(init_time),
-                                 end_time=str(end_time))
+                                 timestamp=timestamp)
 
         return batch
 

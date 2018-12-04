@@ -1,10 +1,15 @@
 # beacon-py
 
-[![Build Status](https://travis-ci.org/deepsourcelabs/beacon-py.svg?branch=master)](https://travis-ci.org/deepsourcelabs/beacon-py)
+[![Build Status](https://travis-ci.org/deepsourcelabs/beacon-py.svg?branch=master)](https://travis-ci.org/deepsourcelabs/beacon-py) 
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/beacon.svg) 
 
-**NOTE: `beacon-py` is currently in a pre-release phase, so we do not recommend using it at the moment.**
+```
+NOTE: beacon-py is currently in a pre-release phase, so we do not recommend using it at the moment.
+```
 
 Beacon runs inside your Python applications and collects metrics around how the code behaves in runtime &mdash; usage of modules, volume of exceptions, to name a few. Python versions 2.7 & 3.4-3.7 are officially supported.
+
+Beacon is open-source, and we are actively looking for contributors for the project. If you want to lend a hand, pick up [an issue](https://github.com/deepsourcelabs/beacon-py/issues) or join the chatter on IRC at **#deepsourcelabs**.
 
 ## Installation
 
@@ -20,13 +25,13 @@ $ pipenv install beacon
 $ make test
 ```
 
-## Generating gRPC Protobuf stubs
+## Generating gRPC client stubs
 
-``bash
+```bash
 $ make generate_grpc_client
 ```
 
-Note: Apparently, the stub generator generates `beacon/beacon_pb2_grpc.py` with a bad import of `beacon_pb2`. After generating the stubs, the import has to be changed manually.
+**NOTE:** Apparently, the stub generator generates `beacon/beacon_pb2_grpc.py` with a bad import of `beacon_pb2`. After generating the stubs, the import has to be changed manually.
 
 Find the line:
 ```python

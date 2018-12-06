@@ -4,6 +4,11 @@ test_patterns = [
   "tests/"
 ]
 
+exclude_patters = [
+  "beacon/beacon_pb2.py",
+  "beacon/beacon_pb2_grpc.py"
+]
+
 [[analyzers]]
 name = "python"
 enabled = true

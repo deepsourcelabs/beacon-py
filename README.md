@@ -1,7 +1,9 @@
 # beacon-py
 
-[![Build Status](https://travis-ci.org/deepsourcelabs/beacon-py.svg?branch=master)](https://travis-ci.org/deepsourcelabs/beacon-py) 
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/beacon.svg) 
+[![Build Status](https://travis-ci.org/deepsourcelabs/beacon-py.svg?branch=master)](https://travis-ci.org/deepsourcelabs/beacon-py)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/beacon.svg)
+
+**DeepSource Dashboard** - [https://deepsource.io/gh/deepsourcelabs/beacon-py/](https://deepsource.io/gh/deepsourcelabs/beacon-py/)
 
 ```
 NOTE: beacon-py is currently in a pre-release phase, so we do not recommend using it at the moment.

@@ -10,7 +10,7 @@ import logging
 from .__version__ import __version__
 from .buffer import Buffer
 from .tracer import Tracer
-from .utils import Timer
+from .utils import Timer, DSN
 from . import beacon_pb2_grpc as pb2_grpc
 from . import defaults
 
@@ -43,9 +43,6 @@ class Agent(object):
     def __init__(self, dsn=None, **options):
 
         o = options
-
-        # TODO: remove this
-        self.stream_id = 'dummy-id'
 
         # set the DSN for this agent; this will throw an error if a valid
         # DSN could not be found.
@@ -89,7 +86,7 @@ class Agent(object):
         self.tracer = Tracer(buffer=self.buffers['function'], **options)
 
         # create a stub for this agent
-        channel = grpc.insecure_channel(self.dsn)
+        channel = grpc.insecure_channel(self.dsn.host)
         self.stub = pb2_grpc.BeaconStub(channel)
 
         # set the logger
@@ -121,9 +118,7 @@ class Agent(object):
 
         self.logger.info(
             "Beacon agent started. "
-            "DSN: {}, Project Root: {}, Stream ID: {}".format(
-                self.dsn, self.project_root, self.stream_id
-            )
+            "DSN: {}, Project Root: {}".format(self.dsn, self.project_root)
         )
 
     def stop(self):
@@ -143,9 +138,8 @@ class Agent(object):
         self.is_stopped = True
 
     def _set_dsn(self, dsn):
-        # TODO: Add validation for DSN before setting; throw an error
-        #       and halt execution of there's no valid DSN found.
-        self.dsn = dsn
+        dsn = str(dsn).lower()
+        self.dsn = DSN(dsn)
 
     def _set_project_root(self, project_root):
         # TODO: sanitize project root with defaults

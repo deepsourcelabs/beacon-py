@@ -9,7 +9,7 @@ import time
 try:
     from urlparse import urlparse
 except ImportError:
-    from urllib.parse import urlparse, urlencode
+    from urllib.parse import urlparse
 
 
 class Timer(object):
@@ -27,6 +27,7 @@ class Timer(object):
                 if not self.is_stopped:
                     _interval = abs(self.interval - (time.time() - start))
                     self.timer = threading.Timer(_interval, wrapped, ())
+                    self.timer.daemon = True
                     self.timer.start()
         self.wrapped = wrapped
 
@@ -37,6 +38,7 @@ class Timer(object):
         with self.mutex:
             self.is_started = True
             self.timer = threading.Timer(self.interval, self.wrapped, ())
+            self.timer.daemon = True
             self.timer.start()
 
     def stop(self):
@@ -113,7 +115,7 @@ class DSN(object):
             raise ValueError(self.ERROR_MESSAGE)
 
         if not host or not self.HOSTNAME_REGEX.match(host):
-            raise ValueError(self.ERROR_MESSAGE) 
+            raise ValueError(self.ERROR_MESSAGE)
 
         self.host = host
 

@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """Utilities for Beacon."""
+from __future__ import unicode_literals
+
 import re
 import threading
 import time
@@ -153,3 +155,6 @@ class DSN(object):
             "<scheme>://<api-key>@<beacon-server-hostname>/<repository-id>"
             .format(self.input_dsn_string)
         )
+
+    def has_secure_scheme(self):
+        return self.scheme.lower() == 'https'

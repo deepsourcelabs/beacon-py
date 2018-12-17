@@ -86,7 +86,7 @@ class Agent(object):
         self.tracer = Tracer(buffer=self.buffers['function'], **options)
 
         # create a stub for this agent
-        channel = grpc.insecure_channel(self.dsn.host)
+        channel = self._get_grpc_channel()
         self.stub = pb2_grpc.BeaconStub(channel)
 
         # set the logger
@@ -147,3 +147,13 @@ class Agent(object):
 
     def _set_source_version(self, source_version):
         self.source_version = source_version
+
+    def _get_grpc_channel(self):
+        """Returns a secure/insecure gRPC Channel instance"""
+        if self.dsn.has_secure_scheme():
+            ssl_credentials = grpc.ssl_channel_credentials()
+            channel = grpc.secure_channel(self.dsn.host, ssl_credentials)
+        else:
+            channel = grpc.insecure_channel(self.dsn.host)
+
+        return channel

@@ -4,7 +4,7 @@ test_patterns = [
   "tests/"
 ]
 
-exclude_patters = [
+exclude_patterns = [
   "beacon/beacon_pb2.py",
   "beacon/beacon_pb2_grpc.py"
 ]

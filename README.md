@@ -1,4 +1,21 @@
-# beacon-py
+<p align="center">
+  <img src="https://deepsource.io/images/logo-wordmark-dark.svg" />
+</p>
+
+<p align="center">
+  <a href="https://deepsource.io/docs">Documentation</a> |
+  <a href="https://deepsource.io/signup">Get Started</a>
+</p>
+
+<p align="center">
+  DeepSource helps you ship good quality code.
+</p>
+
+</p>
+
+---
+
+# Beacon Python client library - beacon-py
 
 [![Build Status](https://travis-ci.org/deepsourcelabs/beacon-py.svg?branch=master)](https://travis-ci.org/deepsourcelabs/beacon-py)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/beacon.svg)

@@ -18,7 +18,7 @@ REQUIRES_PYTHON = '>=2.7.0'
 VERSION = None
 
 # What packages are required for this module to be executed?
-REQUIRED = ['future', 'six', 'grpcio==1.14.1', 'grpcio-tools==1.14.1']
+REQUIRED = ['future', 'six', 'grpcio==1.30.0', 'grpcio-tools==1.14.1']
 
 # What packages are required for tests to run?
 TEST_REQUIRED = ['pytest', 'pytest-sugar', 'pytest-cov', 'mock']
